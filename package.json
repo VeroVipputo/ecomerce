@@ -19,8 +19,14 @@
   "author": "Diego Daniel Tettamanti",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "pug": "^3.0.2"
+    "knex": "^2.1.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "pug": "^3.0.2",
+    "sequelize": "^6.21.3",
+    "sqlite3": "^5.0.9"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.18.6",
