@@ -1,4 +1,4 @@
-
+import Usuario from '../models/Usuario.js'
 
 const formularioLogin = (req,res) => {
     res.render('auth/login', {
@@ -12,6 +12,22 @@ const formularioRegistro = (req,res) => {
     })
 }
 
+const principal = (req,res) => {
+    res.render('auth/main', {
+        pagina: "Principal"
+    })
+}
+
+const registrar = async (req,res) => {
+
+   const usuario = await Usuario.create(req.body)
+
+   res.json(usuario) 
+    }
+
+
+
+
 const formularioOlvidePassword = (req,res) => {
     res.render('auth/olvide-password', {
         pagina: "Recupera tu acceso a la cuenta"
@@ -24,5 +40,7 @@ const formularioOlvidePassword = (req,res) => {
 export{
     formularioLogin,
     formularioRegistro,
+    principal,
+    registrar,
     formularioOlvidePassword
 }
