@@ -1,29 +1,223 @@
 extends ../layout/index
 
 block contenido
-    .row.row-cols-2.row-cols-md-3.g-4.py-4.px-2
-        .col
-          .card 
-            img.card-img-top(src='/img/pexelsmac.jpg' alt='pc')
-            .card-body
-              h5.card-title Card title
-              p.card-text| This is a longer card
-               
-        .col
-          .card
-            img.card-img-top(src='/img/pexelsmac.jpg' alt='...')
-            .card-body
-              h5.card-title Card title
-              p.card-text| This is a longer card 
-        .col
-          .card
-            img.card-img-top(src='/img/pexelsmac.jpg' alt='...')
-            .card-body
-              h5.card-title Card title
-              p.card-text| This is a longer card 
-        .col
-          .card
-            img.card-img-top(src='/img/pexelsmac.jpg' alt='...')
-            .card-body
-              h5.card-title Card title
-              p.card-text| This is a longer card
+
+
+        body
+          header#header.header
+            .container
+              .row
+                .four.columns
+                  img#logo(src='../img/logo.jpg')
+                .two.columns.u-pull-right
+                  ul
+                    li.submenu
+                      img#img-carrito(src='../img/cart.png')
+                      #carrito
+                        table#lista-carrito.u-full-width
+                          thead
+                            tr
+                              th Imagen
+                              th Nombre
+                              th Precio
+                              th Cantidad
+                              th
+                          tbody
+                        a#vaciar-carrito.button.u-full-width(href='#') Vaciar Carrito
+          #hero
+            .container
+              .row
+                .six.columns
+                  .contenido-hero
+                    h2 Aprende algo nuevo
+                    p Todos los cursos a $15
+                    form#busqueda.formulario(action='#', method='post')
+                      input#buscador.u-full-width(type='text', placeholder='¿Que te gustaría Aprender?')
+                      input#submit-buscador.submit-buscador(type='submit')
+          .barra
+            .container
+              .row
+                .four.columns.icono.icono1
+                  p
+                    | 20,000 Cursos en l&iacute;nea 
+                    
+                    Explora  los temas m&aacute;s recientes
+                .four.columns.icono.icono2
+                  p
+                    | Instructores Expertos 
+                    
+                    Aprende con distintos estilos
+                .four.columns.icono.icono3
+                  p
+                    | Acceso de por vida 
+                    
+                    Aprende a tu ritmo
+          #lista-cursos.container
+            h1#encabezado.encabezado Cursos En L&iacute;nea
+            .row
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso1.jpg')
+                  .info-card
+                    h4 HTML5, CSS3, JavaScript para Principiantes
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='1') Agregar Al Carrito
+                // .card
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso2.jpg')
+                  .info-card
+                    h4 Curso de Comida Vegetariana
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='2') Agregar Al Carrito
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso3.jpg')
+                  .info-card
+                    h4 Guitarra para Principiantes
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='3') Agregar Al Carrito
+                // .card
+            // .row
+            .row
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso4.jpg')
+                  .info-card
+                    h4 Huerto en tu casa
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='4') Agregar Al Carrito
+                // .card
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso5.jpg')
+                  .info-card
+                    h4 Decoraci&oacute;n con productos de tu hogar
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='5') Agregar Al Carrito
+                // .card
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso1.jpg')
+                  .info-card
+                    h4 Dise&ntilde;o Web para Principiantes
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='6') Agregar Al Carrito
+                // .card
+            // .row
+            .row
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso2.jpg')
+                  .info-card
+                    h4 Comida Mexicana para principiantes
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='7') Agregar Al Carrito
+                // .card
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso3.jpg')
+                  .info-card
+                    h4 Estudio Musical en tu casa
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='8') Agregar Al Carrito
+                // .card
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso4.jpg')
+                  .info-card
+                    h4 Cosecha tus propias frutas y verduras
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='9') Agregar Al Carrito
+                // .card
+            // .row
+            .row
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso5.jpg')
+                  .info-card
+                    h4 Prepara galletas caseras
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='10') Agregar Al Carrito
+                // .card
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso1.jpg')
+                  .info-card
+                    h4 JavaScript Moderno con ES6
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='11') Agregar Al Carrito
+                // .card
+              .four.columns
+                .card
+                  img.imagen-curso.u-full-width(src='../img/curso2.jpg')
+                  .info-card
+                    h4 100 Recetas de Comida Natural
+                    p Juan Pedro
+                    img(src='../img/estrellas.png')
+                    p.precio
+                      | $200  
+                      span.u-pull-right $15
+                    a.u-full-width.button-primary.button.input.agregar-carrito(href='#', data-id='12') Agregar Al Carrito
+                // .card
+            // .row
+          footer#footer.footer
+            .container
+              .row
+                .four.columns
+                  nav#principal.menu
+                    a.enlace(href='#') Para tu Negocio
+                    a.enlace(href='#') Conviertete en Instructor
+                    a.enlace(href='#') Aplicaciones M&oacute;viles
+                    a.enlace(href='#') Soporte
+                    a.enlace(href='#') Temas
+                .four.columns
+                  nav#secundaria.menu
+                    a.enlace(href='#') &iquest;Quienes Somos?
+                    a.enlace(href='#') Empleo
+                    a.enlace(href='#') Blog
+          script(src='js/app.js')

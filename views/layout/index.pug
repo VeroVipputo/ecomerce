@@ -3,8 +3,35 @@ html(lang="es")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Inmobiliaria |  #{pagina}
+        title Ecommerce  |  #{pagina}
         link(rel="stylesheet", href="/css/app.css")
+        link(rel="stylesheet" href="/css/skeleton.css")
+        link(rel="stylesheet" href="/css/normalize.css")
+
+
     body.min-h-screen.bg-gray-50
-        main(class="mx-auto container mt-10 px-2 .text-center")
-            block contenido
+        html
+            head
+            body
+                header#header.header
+                .container
+                    .row
+                    .four.columns
+                        img#logo(src='../img/logo.jpg')
+                    .two.columns.u-pull-right
+                        ul
+                        li.submenu
+                            img#img-carrito(src='../img/cart.png')
+                            #carrito
+                            table#lista-carrito.u-full-width
+                                thead
+                                tr
+                                    th Imagen
+                                    th Nombre
+                                    th Precio
+                                    th Cantidad
+                                    th
+                                tbody
+                            a#vaciar-carrito.button.u-full-width(href='#') Vaciar Carrito
+                    main(class="mx-auto container mt-10 px-2 .text-center")
+                        block contenido
