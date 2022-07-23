@@ -14,7 +14,9 @@
     "Pug",
     "Tailwind",
     "mySQL",
-    "Sequalize"
+    "Sequalize",
+    "normalize",
+    "mongoose"
   ],
   "author": "Diego Daniel Tettamanti",
   "license": "ISC",
