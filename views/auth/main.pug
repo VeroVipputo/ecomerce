@@ -6,24 +6,26 @@ block contenido
         body
           header#header.header
             .container
-              .row
-                .four.columns
-                  img#logo(src='../img/logo.jpg')
-                .two.columns.u-pull-right
-                  ul
-                    li.submenu
-                      img#img-carrito(src='../img/cart.png')
-                      #carrito
-                        table#lista-carrito.u-full-width
-                          thead
-                            tr
-                              th Imagen
-                              th Nombre
-                              th Precio
-                              th Cantidad
-                              th
-                          tbody
-                        a#vaciar-carrito.button.u-full-width(href='#') Vaciar Carrito
+          .row
+          .four.columns
+          
+            .two.columns.u-pull-right
+              ul
+                li.submenu
+                    img#img-carrito(src='../img/cart.png')
+                    #carrito
+                    table#lista-carrito.u-full-width
+                      thead
+                        tr
+                          th Imagen
+                          th Nombre
+                          th Precio
+                          th Cantidad
+                          th
+                      tbody
+                      a#vaciar-carrito.button.u-full-width(href='#') Vaciar Carrito
+
+
           #hero
             .container
               .row
@@ -220,4 +222,4 @@ block contenido
                     a.enlace(href='#') &iquest;Quienes Somos?
                     a.enlace(href='#') Empleo
                     a.enlace(href='#') Blog
-          script(src='js/app.js')
+          script(src='./public/js/app.js')
