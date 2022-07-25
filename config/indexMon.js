@@ -1,4 +1,18 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv'
+dotenv.config()
+
+const dotenv = require ('dotenv');
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://TettaCorp:<password>@cluster0.mbrit.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
 
 const {Schema, model} = mongoose;
 
@@ -18,7 +32,7 @@ const UserModel = model(userCollection, UserSchema)
   /* --------------------------------------- */
   console.log('Create')
   const user = {
-    name: 'Juan',
+      name: 'Juan',
       lastName: 'Perez',
       email: 'test@test.com',
       userName: 'jperez',
@@ -30,7 +44,7 @@ const UserModel = model(userCollection, UserSchema)
 
   console.log("CREATE OTHER USER");
   await UserModel.create({
-    name: "Juana",
+    name: "Juan",
     lastName: "Perez",
     email: "test@test.com",
     userName: "jperez",
