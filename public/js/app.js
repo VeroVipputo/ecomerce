@@ -1,3 +1,6 @@
+
+
+
 // Variables
 const carrito = document.querySelector('#carrito');
 const listaCursos = document.querySelector('#lista-cursos');
@@ -128,4 +131,18 @@ function vaciarCarrito() {
      while(contenedorCarrito.firstChild) {
           contenedorCarrito.removeChild(contenedorCarrito.firstChild);
       }
+}
+
+
+export {
+     
+     cargarEventListeners,
+     agregarCurso,
+     leerDatosCurso,
+     eliminarCurso,
+     carritoHTML,
+     sincronizarStorage,
+     eliminarCurso,
+     vaciarCarrito,
+     
 }
