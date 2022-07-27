@@ -38,7 +38,7 @@ ul {
     list-style: none;
 }
 #hero {
-    background-image:url(/public/img/hero.jpg);
+    background-image:url(../img/hero.jpg);
     height: 350px;
     background-size: cover;
 }
@@ -75,7 +75,7 @@ ul {
 }
 .contenido-hero {
     margin-top: 80px;
-    color: rgb(14, 13, 13);
+    color: rgb(243, 243, 216);
 }
 .contenido-hero form {
     position: relative;
