@@ -6,50 +6,50 @@ const dotenv = require ('dotenv');
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://TettaCorp:<password>@cluster0.mbrit.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
+const product = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+product.connect(err => {
+  const collection = product.db("test").collection("devices");
   // perform actions on the collection object
-  client.close();
+  product.close();
 });
 
 
 const {Schema, model} = mongoose;
 
-const userCollection = 'users';
+const productoCollection = 'productos';
 
-const UserSchema = new Schema({
-  name: { type:String, required: true, max:100 },
-  lastName: { type:String, required: true, max:100 },
-  email: { type:String, required: true, max:100 },
-  userName: { type:String, required: true, max:100 },
-  password: { type:Number, required: true}, 
+const ProductoSchema = new Schema({
+  imagen: { type:String, required: true, max:100 },
+  titulo: { type:String, required: true, max:100 },
+  precio: { type:Number, required: true },
+  id: { type:String, required: true, max:100 },
+  cantidad: { type:Number, required: true}, 
 })
 
-const UserModel = model(userCollection, UserSchema)
+const ProductoModel = model(productoCollection, ProductoSchema)
 /* --------------------------------------- */
   /*                CREATE                   */
   /* --------------------------------------- */
   console.log('Create')
-  const user = {
-      name: 'Juan',
-      lastName: 'Perez',
-      email: 'test@test.com',
-      userName: 'jperez',
-      password: 123456
+  const producto = {
+      imagen: 'bourbon',
+      titulo: 'Bourbon Clarkes 1866',
+      precio: '400',
+      id: '',
+      cantidad: 1
   }
-  const userSaved = new UserModel(user);
-  let response  = await userSaved.save()
+  const productoSaved = new ProductoModel(user);
+  let response  = await productoSaved.save()
   console.log(response)
 
-  console.log("CREATE OTHER USER");
-  await UserModel.create({
-    name: "Juan",
-    lastName: "Perez",
-    email: "test@test.com",
-    userName: "jperez",
-    password: 123456,
+  console.log("CREATE OTHER PRODUCT");
+  await ProductoModel.create({
+    imagen: 'bourbon',
+    titulo: 'Bourbon Clarkes 1866',
+    precio: '400',
+    id: '',
+    cantidad: 1
   });
 
 
-export default UserModel;
+export default {ProductoModel, producto};

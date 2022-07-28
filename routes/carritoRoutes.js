@@ -1,19 +1,20 @@
 import express from 'express';
 import { 
     cargarEventListeners,
-    agregarCurso,
-    leerDatosCurso,
-    eliminarCurso,
+    agregarProducto,
+    leerDatosProducto,
+    eliminarProducto,
     carritoHTML,
     sincronizarStorage,
-    eliminarCurso,
-    vaciarCarrito} from '../controllers/usuarioControler.js';
+    eliminarProducto,
+    vaciarCarrito} from '../controllers/carritoControlers.js';
 
 
 const router = express.Router();
 
 router.get('/login', formularioLogin);
 router.get('/main', principal);
+router.post('/main', principal);
 router.get('/registro', formularioRegistro);
 router.post('/registro', registrar);
 router.get('/olvide-password', formularioOlvidePassword)
