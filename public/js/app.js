@@ -14,18 +14,19 @@ cargarEventListeners();
 function cargarEventListeners() {
      // Dispara cuando se presiona "Agregar Carrito"
      listaProductos.addEventListener('click', agregarProducto);
+     console.log("Productos mostrados");
 
      // Cuando se elimina un producto del carrito
      carrito.addEventListener('click', eliminarProducto);
-
+     console.log("Producto eliminado");
      // Al Vaciar el carrito
      vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
-
+     console.log("carrito vacio");
 
      // NUEVO: Contenido cargado
      document.addEventListener('DOMContentLoaded', () => {
           articulosCarrito = JSON.parse( localStorage.getItem('carrito') ) || []  ;
-          // console.log(articulosCarrito);
+           console.log(articulosCarrito);
           carritoHTML();
      });
 }
@@ -71,9 +72,6 @@ function leerDatosProducto(producto) {
 
      console.log(articulosCarrito)
 
-     
-
-     // console.log(articulosCarrito)
      carritoHTML();
 }
 

@@ -32,19 +32,19 @@ const ProductoModel = model(productoCollection, ProductoSchema)
   /* --------------------------------------- */
   console.log('Create')
   const producto = {
-      imagen: 'bourbon',
+      imagen: '../img/bourbon.jpg',
       titulo: 'Bourbon Clarkes 1866',
       precio: '400',
       id: '',
       cantidad: 1
   }
-  const productoSaved = new ProductoModel(user);
+  const productoSaved = new ProductoModel(product);
   let response  = await productoSaved.save()
   console.log(response)
 
   console.log("CREATE OTHER PRODUCT");
   await ProductoModel.create({
-    imagen: 'bourbon',
+    imagen: '../img/bourbon.jpg',
     titulo: 'Bourbon Clarkes 1866',
     precio: '400',
     id: '',

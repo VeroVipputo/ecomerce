@@ -1,0 +1,98 @@
+    {"productos1":
+        {         
+            "imagen": "../img/bourbon.jpg",
+            "titulo": "Bourbon Clarkes 1866",
+            "precio": 400,
+            "id": 1,
+            "cantidad": 10
+                
+        },
+    "productos2":
+        {
+            "imagen": "../img/ajedrez.jpg",
+            "titulo": "Juego Ajedrez Ruso. Año 1785. Piezas de Marfil",
+            "precio": 18000,
+            "id": 2,
+            "cantidad": 15       
+        },
+        "productos3":   
+        {
+            "imagen": "../img/rolex.jpg",
+            "titulo": "Rolex Duque oro 24K 12 diamantes",
+            "precio": 65000,
+            "id": 3,
+            "cantidad": 3
+        },
+        "productos4":
+        {
+            "imagen": "../img/harley.jpg",
+            "titulo": "Moto Harley Davidson 48 th. 750 cc 2019",
+            "precio": 48000,
+            "id": 4,
+            "cantidad": 1
+        }, 
+        "productos5":
+        {
+            "imagen": "../img/violin1.jpg",
+            "titulo": "Violin Stradivarius Dancla 150 years",
+            "precio": 55000,
+            "id": 5,
+            "cantidad": 1
+        }, 
+        "productos6":
+        {
+            "imagen": "../img/mesapool.jpg",
+            "titulo": "Mesa de Pool Inglesa",
+            "precio": 10000,
+            "id": 6,
+            "cantidad": 6
+        }, 
+        "productos7":
+        {
+            "imagen": "../img/golf.jpg",
+            "titulo": "Set de Golf Completo",
+            "precio": 4500,
+            "id": 7,
+            "cantidad": 16
+        },
+        "productos8":
+        {
+            "imagen": "../img/gibson.jpg",
+            "titulo": "Guitarra Gibson Lespole Exclusive",
+            "precio": 2000,
+            "id": 8,
+            "cantidad": 9
+        },
+        "productos9":
+        {
+            "imagen": "../img/tvled.jpg",
+            "titulo": "Tv Oled 8k 65 Lg Super Ten Cores",
+            "precio": 2100,
+            "id": 9,
+            "cantidad": 23
+        },
+        "productos10":
+        {
+            "imagen": "../img/imac6.jpg",
+            "titulo": "Pc Imac 6 Pro",
+            "precio": 1800,
+            "id": 10,
+            "cantidad": 15
+        },
+        "productos11":
+        {
+            "imagen": "../img/camaraCanon.jpg",
+            "titulo": "Camara Cannon Extreme Supershot 990",
+            "precio": 1200,
+            "id": 11,
+            "cantidad": 4
+        },
+        "productos12":
+        {
+            "imagen": "../img/iphonex.jpg",
+            "titulo": "100 Smartphone Apple X",
+            "precio": 800,
+            "id": 12,
+            "cantidad": 56
+        }
+    }

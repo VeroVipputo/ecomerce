@@ -1,46 +1,58 @@
-import Usuario from '../models/Usuario.js'
+//import Carrito from '../models/Carrito.js'
 
-const formularioLogin = (req,res) => {
-    res.render('auth/login', {
-        pagina: "Iniciar Sesión"
+const agregarProducto = (req,res) => {
+    res.render('auth/main', {
+        pagina: "Principal"
     })
 }
 //ARREGLAR TODO ESTE ARCHIVO PARA QUE FUNCIONE
-const formularioRegistro = (req,res) => {
-    res.render('auth/registro', {
+const cargarEventListeners = (req,res) => {
+    res.render('auth/main', {
         pagina: "Crear Cuenta"
     })
 }
 
-const principal = (req,res) => {
+const leerDatosProducto = (req,res) => {
     res.render('auth/main', {
         pagina: "Principal"
     })
 }
 
-const registrar = async (req,res) => {
+const carritoHTML = async (req,res) => {
 
-   const usuario = await Usuario.create(req.body)
+   const producto = await producto.create(req.body)
 
-   res.json(usuario) 
+   res.json(producto) 
     }
 
 
 
 
-const formularioOlvidePassword = (req,res) => {
-    res.render('auth/olvide-password', {
-        pagina: "Recupera tu acceso a la cuenta"
+const eliminarProducto = (req,res) => {
+    res.render('auth/main', {
+        pagina: "Principal"
+    })
+}
+
+const sincronizarStorage = (req,res) => {
+    res.render('auth/main', {
+        pagina: "Principal"
+    })
+}
+
+const vaciarCarrito = (req,res) => {
+    res.render('auth/main', {
+        pagina: "Principal"
     })
 }
 
 
-
-
 export{
-    formularioLogin,
-    formularioRegistro,
-    principal,
-    registrar,
-    formularioOlvidePassword
+    cargarEventListeners,
+    agregarProducto,
+    leerDatosProducto,
+    eliminarProducto,
+    carritoHTML,
+    sincronizarStorage,
+    vaciarCarrito
 }

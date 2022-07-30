@@ -6,18 +6,21 @@ import {
     eliminarProducto,
     carritoHTML,
     sincronizarStorage,
-    eliminarProducto,
     vaciarCarrito} from '../controllers/carritoControlers.js';
 
 
 const router = express.Router();
 
-router.get('/login', formularioLogin);
-router.get('/main', principal);
-router.post('/main', principal);
-router.get('/registro', formularioRegistro);
-router.post('/registro', registrar);
-router.get('/olvide-password', formularioOlvidePassword)
+router.get('/main', cargarEventListeners);
+router.get('/main', agregarProducto);
+router.post('/main', agregarProducto);
+router.post('/main', leerDatosProducto);
+router.get('/main', eliminarProducto);
+router.post('/main', eliminarProducto);
+router.get('/main', carritoHTML);
+router.post('/main', carritoHTML);
+router.get('/main', sincronizarStorage)
+router.post('/main', vaciarCarrito)
 
 
 
