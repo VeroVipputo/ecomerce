@@ -2,7 +2,6 @@ import express from 'express';
 import usuarioRoutes from './routes/usuarioRoutes.js'
 import db from './config/db.js'
 import  carritoRoutes from './routes/carritoRoutes.js';
-import app from './public/js/app.js'
 
 // Crear la APP
 const app = express()

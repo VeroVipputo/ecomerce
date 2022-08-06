@@ -11,9 +11,10 @@ let articulosCarrito = [];
 // Listeners
 cargarEventListeners();
 
-function cargarEventListeners() {
-     // Dispara cuando se presiona "Agregar Carrito"
-     listaProductos.addEventListener('click', agregarProducto);
+ function cargarEventListeners()  { 
+
+               // Dispara cuando se presiona "Agregar Carrito"
+     listaProductos.addEventListener  ('click', agregarProducto);
      console.log("Productos mostrados");
 
      // Cuando se elimina un producto del carrito
@@ -29,19 +30,28 @@ function cargarEventListeners() {
            console.log(articulosCarrito);
           carritoHTML();
      });
-}
+     } 
+
+
 
 
 // Función que añade el producto al carrito
-function agregarProducto(e) {
-     e.preventDefault();
-     // Delegation para agregar-carrito
-     if(e.target.classList.contains('agregar-carrito')) {
-          const producto = e.target.parentElement.parentElement;
-          // Enviamos el producto seleccionado para tomar sus datos
-          leerDatosProducto(producto);
+async function agregarProducto(e) {
+     try {
+           e.preventDefault();
+          // Delegation para agregar-carrito
+           (e.target.classList.contains('agregar-carrito')) 
+               const producto = e.target.parentElement.parentElement;
+               // Enviamos el producto seleccionado para tomar sus datos
+               leerDatosProducto(producto);
+               console.log('Producto agregado')
+
+          } catch (error) {
+               console.log(error);    
      }
-}
+
+     }
+
 
 // Lee los datos del producto
 function leerDatosProducto(producto) {
@@ -132,7 +142,7 @@ function vaciarCarrito() {
 }
 
 
-export {
+export default {
      
      cargarEventListeners,
      agregarProducto,
@@ -140,7 +150,6 @@ export {
      eliminarProducto,
      carritoHTML,
      sincronizarStorage,
-     eliminarProducto,
      vaciarCarrito,
      
-}
+} 
