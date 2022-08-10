@@ -1,6 +1,5 @@
 
 
-
 // Variables
 const carrito = document.querySelector('#carrito');
 const listaProductos = document.querySelector('#lista-cursos');
@@ -151,5 +150,5 @@ export default {
      carritoHTML,
      sincronizarStorage,
      vaciarCarrito,
-     
-} 
+
+} ;

@@ -33,11 +33,12 @@ block contenido
               .row
                 .six.columns
                   .contenido-hero
-                    h2  Hombre V.I.P.
+                    h2
+                      img.logo(src='../img/logo3.jpg')
                     p Viviendo la vida con Estilo y buen gusto 
                     form#busqueda.formulario(action='#', method='post')
-                      input#buscador.u-full-width(type='text', placeholder='Productos Internacionales Premium')
-                      input#submit-buscador.submit-buscador(type='submit')
+                        input#buscador.u-full-width(type='text', placeholder='Productos Internacionales Premium')
+                        input#submit-buscador.submit-buscador(type='submit')
           .barra
             .container
               .row
@@ -225,4 +226,4 @@ block contenido
                     a.enlace(href='#') ¿Quienes Somos?
                     a.enlace(href='#') Contactos
                     a.enlace(href='#') Blog
-          script(src='../js/app.js')
+          script(src=" ../public/js/app.js") 

@@ -1,7 +1,9 @@
 import express from 'express';
 import usuarioRoutes from './routes/usuarioRoutes.js'
+import productosRoutes from './routes/productosRoutes.js'
 import db from './config/db.js'
 import  carritoRoutes from './routes/carritoRoutes.js';
+
 
 // Crear la APP
 const app = express()
@@ -29,6 +31,7 @@ app.use(express.static('public'))
 
 // Definiendo un Routing (Middlewares)
 app.use('/auth', usuarioRoutes, carritoRoutes)
+app.use('/', productosRoutes)
 
 
 //Definir el puerto y arrancarlo
