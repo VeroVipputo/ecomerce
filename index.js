@@ -1,8 +1,9 @@
 import express from 'express';
 import usuarioRoutes from './routes/usuarioRoutes.js'
 import productosRoutes from './routes/productosRoutes.js'
+import  carritoRoutes from './routes/carritoRoutes.js'
 import db from './config/db.js'
-import  carritoRoutes from './routes/carritoRoutes.js';
+
 
 
 // Crear la APP
@@ -30,7 +31,8 @@ app.set('views','./views')
 app.use(express.static('public'))
 
 // Definiendo un Routing (Middlewares)
-app.use('/auth', usuarioRoutes, carritoRoutes)
+app.use('/auth', usuarioRoutes)
+app.use('/auth', carritoRoutes)
 app.use('/', productosRoutes)
 
 

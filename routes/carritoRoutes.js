@@ -6,7 +6,7 @@ import {
     eliminarProducto,
     carritoHTML,
     sincronizarStorage,
-    vaciarCarrito} from '../controllers/carritoControlers.js';
+    vaciarCarrito} from '../controllers/carritoControllers.js';
 
 
 const router = express.Router();
