@@ -1,3 +1,4 @@
+import { check, validationResult} from 'express-validator'
 import Usuario from '../models/Usuario.js'
 
 const formularioLogin = (req,res) => {
@@ -19,7 +20,27 @@ const principal = (req,res) => {
 }
 
 const registrar = async (req,res) => {
+    //Validación
+    await check('nombre').notEmpty().withMessage('El nombre no puede ir vacio').run(req)
+    await check('email').isEmail().withMessage('Eso no parece un email').run(req)
+    await check('password').isLength({min: 6}).withMessage('El password al menos tiene que ser de 6 caracteres').run(req)
+    await check('password').equals('password').withMessage('Repita exactamente el mismo password').run(req)
+    
+    let resultado = validationResult(req)
 
+    // return res.json(resultado.array())
+
+//Validacion: Verificando que el usuario este vacio
+    if(!resultado.isEmpty()){
+        //Errores
+        return res.render('auth/registro' , {
+            pagina: 'Crear cuenta', 
+            errores: resultado.array()
+        })
+    }
+
+    res.json(resultado.array());
+   
    const usuario = await Usuario.create(req.body)
 
    res.json(usuario) 
