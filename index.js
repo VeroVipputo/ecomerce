@@ -3,6 +3,7 @@ import usuarioRoutes from './routes/usuarioRoutes.js'
 import productosRoutes from './routes/productosRoutes.js'
 import  carritoRoutes from './routes/carritoRoutes.js'
 import db from './config/db.js'
+import cookieParser from 'cookie-parser';
 
 
 
@@ -29,11 +30,17 @@ app.set('views','./views')
 
 //Carpeta Publica
 app.use(express.static('public'))
+app.use(cookieParser)
 
 // Definiendo un Routing (Middlewares)
 app.use('/auth', usuarioRoutes)
 app.use('/auth', carritoRoutes)
 app.use('/', productosRoutes)
+app.get('/getCookie',(req,res)=>{
+     console.log(req.cookies);
+     res.send(req.cookies);
+ })
+ 
 
 
 //Definir el puerto y arrancarlo
