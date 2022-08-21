@@ -3,8 +3,8 @@ import usuarioRoutes from './routes/usuarioRoutes.js'
 import productosRoutes from './routes/productosRoutes.js'
 import  carritoRoutes from './routes/carritoRoutes.js'
 import db from './config/db.js'
-import cookieParser from 'cookie-parser';
-import __dirname from './utils.js';
+//import cookieParser from 'cookie-parser';
+//import __dirname from './utils.js';
 
 
 
@@ -27,21 +27,21 @@ try {
 
 //Habilitar Pug
 app.set('view engine', 'pug')
-app.set('views','./views')
-app.set('views',__dirname +'/views')
+//app.set('views','./views')
+//app.set('views',__dirname +'/views')
 
 //Carpeta Publica
 app.use(express.static('public'))
-app.use(cookieParser)
+//app.use(cookieParser)
 
 // Definiendo un Routing (Middlewares)
 app.use('/auth', usuarioRoutes)
 app.use('/auth', carritoRoutes)
 app.use('/', productosRoutes)
-app.get('/getCookie',(req,res)=>{
-     console.log(req.cookies);
-     res.send(req.cookies);
- })
+// //app.get('/getCookie',(req,res)=>{
+//  //    console.log(req.cookies);
+//      res.send(req.cookies);
+//  })
  
 
 

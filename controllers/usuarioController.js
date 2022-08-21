@@ -24,7 +24,7 @@ const registrar = async (req,res) => {
     await check('nombre').notEmpty().withMessage('El nombre no puede ir vacio').run(req)
     await check('email').isEmail().withMessage('Eso no parece un email').run(req)
     await check('password').isLength({min: 6}).withMessage('El password al menos tiene que ser de 6 caracteres').run(req)
-    await check('password').equals('password').withMessage('Repita exactamente el mismo password').run(req)
+  //  await check('password').equals('password').withMessage('Repita exactamente el mismo password').run(req)
     
     let resultado = validationResult(req)
 
@@ -47,7 +47,7 @@ const registrar = async (req,res) => {
    const usuario = await Usuario.create(req.body)
 
    res.json(usuario) 
-    }
+}
 
 
 
