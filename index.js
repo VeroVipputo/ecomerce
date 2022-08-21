@@ -4,6 +4,7 @@ import productosRoutes from './routes/productosRoutes.js'
 import  carritoRoutes from './routes/carritoRoutes.js'
 import db from './config/db.js'
 import cookieParser from 'cookie-parser';
+import __dirname from './utils.js';
 
 
 
@@ -27,6 +28,7 @@ try {
 //Habilitar Pug
 app.set('view engine', 'pug')
 app.set('views','./views')
+app.set('views',__dirname +'/views')
 
 //Carpeta Publica
 app.use(express.static('public'))
