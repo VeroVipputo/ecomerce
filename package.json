@@ -16,7 +16,12 @@
     "mySQL",
     "Sequalize",
     "normalize",
-    "mongoose"
+    "mongoose",
+    "faker",
+    "session-file-store",
+    "mime",
+    "cookie-parser",
+    "connect-mongo"
   ],
   "author": "Diego Daniel Tettamanti",
   "license": "ISC",

@@ -1,10 +1,10 @@
-import express from "express"
-import {admin} from '../controllers/productoController.js'
-
-const router = express.Router()
+//import express from "express"
+//import {admin} from '../controllers/productoController.js'
 
 
-router.get('/mis-productos', admin )
+//const router = express.Router()
 
 
-export default router
+//router.get('/productos-test', admin )
+
+
