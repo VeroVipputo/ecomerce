@@ -1,19 +1,17 @@
 import faker from "faker"
 faker.locale = 'es';
-const {name, internet, random} = faker;
+const {name, commerce, image} = faker;
 import {writeFile} from 'fs';
 
-let data ="NOMBRE;APELLIDO;EMAIL;TRABAJO;LUGAR"
+let data ="PRODUCTO;PRECIO;IMAGEN"
 
-for(let i = 0; i < 100; i++){
-    data+= name.firstName()+
-            ";"+ name.lastName()+
-            ";"+ internet.email()+
-            ";"+ name.jobTitle()+
-            ";"+ random.locale()+
+for(let i = 0; i < 5; i++){
+    data+=  ";"+ commerce.product() +
+            ";"+ commerce.price()+
+            ";"+ image.abstract()+
             "\n"
 }
-writeFile('./papa.csv',data, err=>{
+writeFile('./productos-test.csv',data, err=>{
     if(err) return console.log(err);
     console.log('Listo el Pollo')
 }

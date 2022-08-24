@@ -6,7 +6,7 @@ import db from './config/db.js';
 import usersRouter from './routes/users.router.js';
 
 //import cookieParser from 'cookie-parser';
-//import __dirname from './utils.js';
+import __dirname from './utils.js';
 
 
 
@@ -31,7 +31,7 @@ try {
 //Habilitar Pug
 app.set('view engine', 'pug')
 //app.set('views','./views')
-//app.set('views',__dirname +'/views')
+app.set('views',__dirname +'/views')
 
 //Carpeta Publica
 app.use(express.static('public'))
