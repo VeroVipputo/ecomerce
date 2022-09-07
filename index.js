@@ -4,7 +4,7 @@ import usuarioRoutes from './routes/usuarioRoutes.js';
 import  carritoRoutes from './routes/carritoRoutes.js';
 import db from './config/db.js';
 import usersRouter from './routes/users.router.js';
-
+import mongoose from 'mongoose';
 //import cookieParser from 'cookie-parser';
 import __dirname from './utils.js';
 
@@ -26,13 +26,14 @@ try {
 } catch (error) {
      console.log(error)
 }
-
+const serverm = app.listen(27017,()=> { console.log("Conectado a Mongo")})
+const connection = mongoose.connect('mongodb+srv://Tettacorp:<password>@cluster17.63yiu.mongodb.net/superbase?retryWrites=true&w=majority')
 
 //Habilitar Pug
 app.set('view engine', 'pug')
 //app.set('views','./views')
 // app.set('views',__dirname +'/views')
-
+app.use(express.json());
 //Carpeta Publica
 app.use(express.static('public'))
 //app.use(cookieParser)

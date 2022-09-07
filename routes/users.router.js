@@ -6,11 +6,21 @@ const usersService = new Users();
 
 const router = Router();
 
-router.get('/', async (req,res) => {
+router.post('/registro', async (req,res) => {
     try {
         let users = await usersService.getAll();
-        res.send({status:"success", payload:users})
+        const {nombre,email,password} = req.body;
+        if (!nombre||!email||!password) return res.status(400).send({status:"error", error: "incomplete values"});
+        let exists = await usersService.findOne({email:email});
+        if (exists) return res.status(400).send({status:"error",error:"user already exists"});
+        let result = await usersService.create({
+            nombre,
+            email,
+            password
+        })
+        res.send({status:"success", payload:result.id})
     } catch (error) {
+        console.log(error)
         res.status(500).send({status:"error",error: "Couldn't get users"})
     }
 
@@ -23,5 +33,8 @@ router.get('/populate',async (req,res)=>{
         res.status(500).send({status:"error", error:"Couldn't populate users"})
         
     }
+})
+router.post('login', async(req,res)=>{
+    
 })
 export default router;
