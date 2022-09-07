@@ -31,7 +31,7 @@ try {
 //Habilitar Pug
 app.set('view engine', 'pug')
 //app.set('views','./views')
-app.set('views',__dirname +'/views')
+// app.set('views',__dirname +'/views')
 
 //Carpeta Publica
 app.use(express.static('public'))

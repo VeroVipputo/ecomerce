@@ -1,6 +1,6 @@
 import faker from "faker"
 faker.locale = 'es';
-const {name, commerce, image} = faker;
+const {commerce, image} = faker;
 import {writeFile} from 'fs';
 
 let data ="PRODUCTO;PRECIO;IMAGEN"

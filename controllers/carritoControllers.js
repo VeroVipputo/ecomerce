@@ -1,4 +1,3 @@
-//import Carrito from '../models/Carrito.js'
 
 const agregarProducto = (req,res) => {
     res.render('auth/main', {

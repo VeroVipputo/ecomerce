@@ -1,24 +1,24 @@
+import { MongoClient } from 'mongodb';
 
-import { MongoClient } from "mongodb";
 
-// Connection URI
-const uri =
-  "mongodb+srv://sample-hostname:27017/?maxPoolSize=20&w=majority";
+// Connection URL
+const url = 'mongodb://localhost:27017';
+const client = new MongoClient(url);
 
-// Create a new MongoClient
-const client = new MongoClient(uri);
+// Database Name
+const admin = 'Productos';
 
-async function run() {
-  try {
-    // Connect the client to the server (optional starting in v4.7)
-    await client.connect();
+async function main() {
+  // Use connect method to connect to the server
+  await client.connect();
+  console.log('Connected successfully to server');
 
-    // Establish and verify connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Connected successfully to server");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+  // the following code examples can be pasted here...
+
+  return 'done.';
 }
-run().catch(console.dir);
+
+main()
+  .then(console.log)
+  .catch(console.error)
+  .finally(() => client.close());
