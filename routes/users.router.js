@@ -2,7 +2,7 @@ import { Router } from "express";
 import Users from "../models/Users.js";
 
 
-const usersService = new Users();
+// const usersService =  Users();
 
 const router = Router();
 

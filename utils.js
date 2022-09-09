@@ -1,13 +1,14 @@
-import faker from "faker";
-faker.locale = "es";
+import {fileURLToPath} from 'url'
+import { dirname } from 'path'
+import bcrypt from 'bcrypt';
+import Users from './models/Users.js';
 
-export const generateUser = () => {
-    return {
-        name : faker.name.findName(),
-        price: faker.price.price(),
-        product: faker.product(),
-        picture : faker.image.picture(),
-    }
-}
+/* Bcrypts */
+export const createHash = password => bcrypt.hashSync(password,bcrypt.genSaltSync(10));
+export const isValidPassword = (user,password) => bcrypt.compareSync(password,user.password);
 
-export default generateUser
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default __dirname;

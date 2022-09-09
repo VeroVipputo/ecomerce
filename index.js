@@ -7,7 +7,10 @@ import usersRouter from './routes/users.router.js';
 import mongoose from 'mongoose';
 //import cookieParser from 'cookie-parser';
 import __dirname from './utils.js';
-
+import MongoStore from 'connect-mongo';
+import session from 'express-session';
+import passport from 'passport';
+import initializePassport from './config/passport.config.js';
 
 
 // Crear la APP
@@ -27,15 +30,28 @@ try {
      console.log(error)
 }
 const serverm = app.listen(27017,()=> { console.log("Conectado a Mongo")})
-const connection = mongoose.connect('mongodb+srv://Tettacorp:<password>@cluster17.63yiu.mongodb.net/superbase?retryWrites=true&w=majority')
+const connection = mongoose.connect('mongodb+srv://Tettacorp:<T3tt4m4nt!>@cluster17.63yiu.mongodb.net/bienesraices-node-mvc?retryWrites=true&w=majority')
 
 //Habilitar Pug
 app.set('view engine', 'pug')
-//app.set('views','./views')
-// app.set('views',__dirname +'/views')
+app.set('views','./views')
+app.set('views',__dirname +'/views')
 app.use(express.json());
 //Carpeta Publica
-app.use(express.static('public'))
+app.use(express.static(__dirname+'/public'));
+app.use(session({
+     secret:"CoderSecretosoConquesoporfavorypapas",
+     store:MongoStore.create({
+         mongoUrl:'mongodb+srv://Tettacorp:<T3tt4m4nt!>@cluster17.63yiu.mongodb.net/bienesraices-node-mvc?retryWrites=true&w=majority',
+         mongoOptions:{useNewUrlParser:true,useUnifiedTopology:true},
+         ttl:27017
+     }),
+     resave:false,
+     saveUninitialized:false
+ }))
+ initializePassport();
+ app.use(passport.initialize());
+ app.use(passport.session());
 //app.use(cookieParser)
 
 // Definiendo un Routing (Middlewares)
