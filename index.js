@@ -5,7 +5,7 @@ import  carritoRoutes from './routes/carritoRoutes.js';
 import db from './config/db.js';
 import usersRouter from './routes/users.router.js';
 import mongoose from 'mongoose';
-//import cookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser';
 import __dirname from './utils.js';
 import MongoStore from 'connect-mongo';
 import session from 'express-session';
@@ -52,7 +52,7 @@ app.use(session({
  initializePassport();
  app.use(passport.initialize());
  app.use(passport.session());
-//app.use(cookieParser)
+app.use(cookieParser)
 
 // Definiendo un Routing (Middlewares)
 app.use('/auth', usuarioRoutes)

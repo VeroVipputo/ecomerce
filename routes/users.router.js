@@ -8,7 +8,7 @@ const router = Router();
 
 router.post('/registro', async (req,res) => {
     try {
-        let users = await usersService.getAll();
+        let usersService = await usersService.getAll();
         const {nombre,email,password} = req.body;
         if (!nombre||!email||!password) return res.status(400).send({status:"error", error: "incomplete values"});
         let exists = await usersService.findOne({email:email});

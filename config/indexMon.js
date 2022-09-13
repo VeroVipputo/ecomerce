@@ -5,7 +5,7 @@ dotenv.config()
 const dotenv = require ('dotenv');
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://TettaCorp:<password>@cluster0.mbrit.mongodb.net/?retryWrites=true&w=majority";
+const uri = 'mongodb+srv://Tettacorp:<T3tt4m4nt!>@cluster17.63yiu.mongodb.net/bienesraices-node-mvc?retryWrites=true&w=majority';
 const product = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 product.connect(err => {
   const collection = product.db("test").collection("devices");
