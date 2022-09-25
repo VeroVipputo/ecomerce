@@ -37,4 +37,8 @@ router.get('/populate',async (req,res)=>{
 router.post('login', async(req,res)=>{
     
 })
+
+router.get('/', async (req, res) => {
+    console.log('come chingon')
+})
 export default router;
