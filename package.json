@@ -42,6 +42,7 @@
     "mongosh": "^1.6.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
+    "node": "^18.9.1",
     "normalize.css": "^8.0.1",
     "normalizr": "^3.6.2",
     "passport": "^0.6.0",

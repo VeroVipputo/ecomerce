@@ -4,13 +4,13 @@ import usuarioRoutes from './routes/usuarioRoutes.js';
 import  carritoRoutes from './routes/carritoRoutes.js';
 import db from './config/db.js';
 import usersRouter from './routes/users.router.js';
-import mongoose from 'mongoose';
-import cookieParser from 'cookie-parser';
+//import mongoose from 'mongoose';
+//import cookieParser from 'cookie-parser';
 import __dirname from './utils.js';
 //import MongoStore from 'connect-mongo';
 //import session from 'express-session';
-import passport from 'passport';
-import initializePassport from './config/passport.config.js';
+// import passport from 'passport';
+// import initializePassport from './config/passport.config.js';
 import compression from "compression";
 
 // Crear la APP
@@ -30,7 +30,7 @@ try {
 }
 
 app.listen(27017,()=> { console.log("Conectado a Mongo")})
-//const mongoUrl = 'mongodb://user:pass@localhost:27017/admin';
+const mongoUrl = "mongodb://localhost:27017";
 //mongoose.connect(mongoUrl)
 //mongoose.connect(`mongodb+srv://Tettacorp:<${process.env.MONGO_PASS}>@cluster17.63yiu.mongodb.net/bienesraices-node-mvc?retryWrites=true&w=majority`)
 
@@ -53,10 +53,10 @@ app.use(session({
      saveUninitialized:false
  }))
  */
- initializePassport();
- app.use(passport.initialize());
- app.use(passport.session());
- app.use(cookieParser);
+//  initializePassport();
+//  app.use(passport.initialize());
+//  app.use(passport.session());
+//  app.use(cookieParser);
 
 // Definiendo un Routing (Middlewares)
 app.use('/auth', usuarioRoutes)
