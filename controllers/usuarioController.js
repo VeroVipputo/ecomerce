@@ -37,28 +37,40 @@ const registrar = async (req,res) => {
             pagina: 'Crear cuenta', 
             errores: resultado.array(),
             usuario: {
-                nombre:req.body.nombre
+                nombre:req.body.nombre,
+                email: req.body.email
             }
         })
     }
-
-    res.json(resultado.array());
+    //Extraer los datos
+    const {nombre, email, password} = req.body
    
-   const usuario = await Usuario.create(req.body)
+    // Verificar que el usuario no esté duplicado
+const existeUsuario = await Usuario.findOne( { where : { email }})
 
-   res.json(usuario) 
+if(existeUsuario){
+        return res.render('auth/registro' , {
+            pagina: 'Crear cuenta', 
+            errores: [{msg: 'El Usuario ya esta registrado'}],
+            usuario: {
+                nombre:req.body.nombre,
+                email: req.body.email}
+})
+
 }
 
+console.log(existeUsuario)
 
+return;
+  
 
-
-const formularioOlvidePassword = (req,res) => {
+const OlvidePassword =  (req,res) => {
     res.render('auth/olvide-password', {
-        pagina: "Recupera tu acceso a la cuenta"
+        pagina: 'Recupera tu acceso a la cuenta'
     })
 }
 
-
+}
 
 
 export{
@@ -66,5 +78,5 @@ export{
     formularioRegistro,
     principal,
     registrar,
-    formularioOlvidePassword
+    OlvidePassword
 }

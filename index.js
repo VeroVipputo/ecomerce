@@ -41,18 +41,8 @@ app.set('views',__dirname +'/views')
 app.use(express.json());
 //Carpeta Publica
 app.use(express.static(__dirname+'/public'));
-/*
-const mongoURI = mongodb://user:pass@host:port/dbName
-app.use(session({
-     secret:"CoderSecretosoConquesoporfavorypapas",
-     store:MongoStore.create({
-         mongoUrl:`mongodb+srv://Tettacorp:<${process.env.MONGO_PASS}>@cluster17.63yiu.mongodb.net/bienesraices-node-mvc?retryWrites=true&w=majority`,
-         mongoOptions:{useNewUrlParser:true,useUnifiedTopology:true}
-     }),
-     resave:false,
-     saveUninitialized:false
- }))
- */
+
+
 //  initializePassport();
 //  app.use(passport.initialize());
 //  app.use(passport.session());
