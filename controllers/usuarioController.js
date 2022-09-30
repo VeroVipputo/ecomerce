@@ -69,11 +69,11 @@ await Usuario.create({
 })
   
 //mostrar mensaje de confirmacion
-return res.render('templates/mensaje', {
-    pagina: 'Cuenta creada correctamente',
-    mensaje: 'Hemos enviado un mail de confirmación. Presiona en el enlace'
+//  res.render('templates/mensaje', {
+//     pagina: 'Cuenta creada correctamente',
+//     mensaje: 'Hemos enviado un mail de confirmación. Presiona en el enlace'
 
-})
+// })
 
 }
 
@@ -82,5 +82,5 @@ export {
     formularioLogin,
     formularioRegistro,
     principal,
-    registrar   
+    registrar  
 }
