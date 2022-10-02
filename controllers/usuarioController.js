@@ -1,6 +1,9 @@
 import { check, validationResult} from 'express-validator'
 import Usuario from '../models/Usuario.js'
 import {generarId} from '../helpers/tokens.js'
+import { emailRegistro } from '../helpers/emails.js'
+
+
 const formularioLogin = (req,res) => {
     res.render('auth/login', {
         pagina: "Iniciar Sesión"
@@ -61,26 +64,55 @@ if(existeUsuario){
 
 
 //Almacear un usuario
-await Usuario.create({
+const usuario = await Usuario.create({
     nombre,
     email,
     password,
     token: generarId()
 })
   
-//mostrar mensaje de confirmacion
-//  res.render('templates/mensaje', {
-//     pagina: 'Cuenta creada correctamente',
-//     mensaje: 'Hemos enviado un mail de confirmación. Presiona en el enlace'
+//Envia email de confirmacion
+emailRegistro({
+    nombre: usuario.nombre,
+    email:  usuario.email,
+    token:  usuario.token
+})
 
-// })
+//mostrar mensaje de confirmacion
+ res.render('templates/mensaje', {
+    pagina: 'Cuenta creada correctamente',
+    mensaje: 'Hemos enviado un mail de confirmación. Presiona en el enlace'
+
+})
 
 }
+//Funcion que comprueba una cuenta
+const confirmar = async (req,res) => {
 
+    const {token} = req.params;
+
+    //Verificar si el token es valido
+    const usuario = await Usuario.findOne({ where: {token}})
+
+    if(!usuario) {
+        return res.render('auth/confirmar-cuenta',{
+            pagina: 'Error al confirmar tu cuenta',
+            mensaje: 'Hubo un error al confirmar tu cuenta, intenta de nuevo',
+            error: true 
+        })
+    }
+
+    //Confirmar la cuenta
+
+
+    
+
+}
 
 export {
     formularioLogin,
     formularioRegistro,
     principal,
-    registrar  
+    registrar,
+    confirmar  
 }
