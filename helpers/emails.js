@@ -9,11 +9,11 @@ const emailRegistro = async (datos) => {
             pass: process.env.EMAIL_PASS
         }
     });
-    const {email, nombre, token} = datos
+    
 }
-
+const {email, nombre, token} = datos
 //Enviar el email
- transport.sendMail({
+ await transport.sendMail({
     from : 'deluxe.com.ar',
     to : email,
     subject : 'Confirma tu cuenta en deluxe.com.ar',
