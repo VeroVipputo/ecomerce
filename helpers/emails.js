@@ -7,10 +7,10 @@ const emailRegistro = async (datos) => {
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
-        }
-    });
+            }
+        });
     
-}
+
 const {email, nombre, token} = datos
 //Enviar el email
  await transport.sendMail({
@@ -27,8 +27,6 @@ const {email, nombre, token} = datos
 
         `
 
-})
+})}
 
-export {
-    emailRegistro
-}
+export { emailRegistro };

@@ -27,7 +27,7 @@ const registrar = async (req,res) => {
     await check('nombre').notEmpty().withMessage('El nombre no puede ir vacio').run(req)
     await check('email').isEmail().withMessage('Eso no parece un email').run(req)
     await check('password').isLength({min: 6}).withMessage('El password al menos tiene que ser de 6 caracteres').run(req)
-  //  await check('password').equals('password').withMessage('Repita exactamente el mismo password').run(req)
+   // await check('repetir_ password').equals('password').withMessage('Repita exactamente el mismo password').run(req)
     
     let resultado = validationResult(req)
 
@@ -83,7 +83,7 @@ emailRegistro({
     pagina: 'Cuenta creada correctamente',
     mensaje: 'Hemos enviado un mail de confirmación. Presiona en el enlace'
 
-})
+});
 
 }
 //Funcion que comprueba una cuenta
@@ -112,14 +112,18 @@ const confirmar = async (req,res) => {
         mensaje: 'La cuenta se confirmó correctamente',
       
     })
-
-
 }
 
+const formularioOlvidePassword = (res, req) =>{
+        res.render('auth/olvide-password', {
+            pagina: 'Recupera tu acceso Deluxe Shop'
+        })
+}
 export {
     formularioLogin,
     formularioRegistro,
     principal,
     registrar,
-    confirmar  
+    confirmar,
+    formularioOlvidePassword
 }
