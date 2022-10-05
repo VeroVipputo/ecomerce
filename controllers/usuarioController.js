@@ -6,13 +6,16 @@ import { emailRegistro } from '../helpers/emails.js'
 
 const formularioLogin = (req,res) => {
     res.render('auth/login', {
-        pagina: "Iniciar Sesión"
+        pagina: 'Iniciar Sesión'
     })
 }
 
 const formularioRegistro = (req,res) => {
+    
     res.render('auth/registro', {
-        pagina: "Crear Cuenta"
+        pagina: 'Crear Cuenta',
+        csrfToken : req.csrfToken()
+
     })
 }
 
@@ -38,6 +41,7 @@ const registrar = async (req,res) => {
         //Errores
         return res.render('auth/registro' , {
             pagina: 'Crear cuenta', 
+            csrfToken : req.csrfToken(),
             errores: resultado.array(),
             usuario: {
                 nombre:req.body.nombre,
@@ -54,6 +58,7 @@ const existeUsuario = await Usuario.findOne( { where : { email }})
 if(existeUsuario){
         return res.render('auth/registro' , {
             pagina: 'Crear cuenta', 
+            csrfToken : req.csrfToken(),
             errores: [{msg: 'El Usuario ya esta registrado'}],
             usuario: {
                 nombre:req.body.nombre,
@@ -78,12 +83,7 @@ emailRegistro({
     token:  usuario.token
 })
 
-//mostrar mensaje de confirmacion
- res.render('templates/mensaje', {
-    pagina: 'Cuenta creada correctamente',
-    mensaje: 'Hemos enviado un mail de confirmación. Presiona en el enlace'
 
-});
 
 }
 //Funcion que comprueba una cuenta
@@ -109,21 +109,28 @@ const confirmar = async (req,res) => {
 
     return res.render('auth/confirmar-cuenta',{
         pagina: 'Cuenta confirmada',
-        mensaje: 'La cuenta se confirmó correctamente',
-      
-    })
+        mensaje: 'La cuenta se confirmó correctamente'
+      })
 }
 
 const formularioOlvidePassword = (res, req) =>{
         res.render('auth/olvide-password', {
-            pagina: 'Recupera tu acceso Deluxe Shop'
+            pagina: 'Recupera tu acceso Deluxe Shop',
+            csrfToken : req.csrfToken()
         })
 }
+
+const resetPassword = (req,res) => {
+
+}
+
+
 export {
     formularioLogin,
     formularioRegistro,
     principal,
     registrar,
     confirmar,
-    formularioOlvidePassword
+    formularioOlvidePassword,
+    resetPassword
 }
