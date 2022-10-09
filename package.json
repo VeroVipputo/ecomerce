@@ -57,6 +57,7 @@
     "session-file-store": "^1.5.0",
     "skeleton-css": "^2.0.4",
     "sqlite3": "^5.0.9",
+    "twilio": "^3.82.2",
     "winston": "^3.8.2"
   },
   "devDependencies": {
