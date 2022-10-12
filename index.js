@@ -37,8 +37,8 @@ try {
      console.log(error)
 }
 
-app.listen(27017,()=> { console.log("Conectado a Mongo")})
-const mongoUrl = "mongodb://localhost:27017";
+// app.listen(27017,()=> { console.log("Conectado a Mongo")})
+// const mongoUrl = "mongodb://localhost:27017";
 //mongoose.connect(mongoUrl)
 //mongoose.connect(`mongodb+srv://Tettacorp:<${process.env.MONGO_PASS}>@cluster17.63yiu.mongodb.net/bienesraices-node-mvc?retryWrites=true&w=majority`)
 
@@ -77,7 +77,7 @@ app.get('/',(req,res)=>{
 
 
 //Definir el puerto y arrancarlo
-const port = process.env.PORT || 3000;
+const port = process.env.EMAIL_PORT || 5000;
 
 app.listen(port, () => {
      console.log(`El servidor esta funcionando en el puerto ${port}`)
