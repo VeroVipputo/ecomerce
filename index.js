@@ -54,16 +54,16 @@ app.use(express.static(__dirname+'/public'));
 //  initializePassport();
 //  app.use(passport.initialize());
 //  app.use(passport.session());
-//  app.use(cookieParser);
+
 
 // Definiendo un Routing (Middlewares)
 app.use('/auth', usuarioRoutes)
 app.use('/auth', carritoRoutes)
 //app.use('/', productosRoutes)
-// //app.get('/getCookie',(req,res)=>{
-//  //    console.log(req.cookies);
-//      res.send(req.cookies);
-//  })
+app.get('/getCookie',(req,res)=>{
+console.log(req.cookies);
+res.send(req.cookies);
+ })
 
 
 app.use(compression());
@@ -77,7 +77,7 @@ app.get('/',(req,res)=>{
 
 
 //Definir el puerto y arrancarlo
-const port = process.env.EMAIL_PORT || 5000;
+const port = 3000;
 
 app.listen(port, () => {
      console.log(`El servidor esta funcionando en el puerto ${port}`)

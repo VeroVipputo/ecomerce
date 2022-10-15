@@ -113,16 +113,31 @@ const confirmar = async (req,res) => {
       })
 }
 
-const formularioOlvidePassword = (res, req) =>{
+const formularioOlvidePassword =  (req, res) =>{
+    let resultado = validationResult(req)
         res.render('auth/olvide-password', {
             pagina: 'Recupera tu acceso Deluxe Shop',
-            csrfToken : req.csrfToken()
+            csrfToken : req.csrfToken(),
+            errores: resultado.array()
         })
 }
 
-const resetPassword = (req,res) => {
+const resetPassword = async (req,res) => {
+    //Validacion
+    await check('email').isEmail().withMessage('Eso no parece un email').run(req)  
 
-}
+    let resultado = validationResult(req)
+
+    //Verificar que el resultado este vacío
+    if(!resultado.isEmpty()){
+        //Errores
+        return res.render('auth/olvide-password',{            
+        pagina: 'Recupera tu acceso Deluxe Shop',
+        csrfToken : req.csrfToken(),
+        errores: resultado.array()
+    })
+
+}}
 
 
 export {
