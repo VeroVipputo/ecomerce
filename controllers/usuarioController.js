@@ -121,6 +121,20 @@ const formularioOlvidePassword =  (req, res) =>{
             errores: resultado.array()
         })
 }
+//Buscar el usuario si existe o no
+const findUsuario = async (req,res) =>{
+const { email } = req.body 
+
+const usuario = await Usuario.findOne({ where: {email}})
+if(!usuario){
+    
+        res.render('auth/olvide-password', {
+        pagina: 'Recupera el acceso a Deluxe Shop',
+        csrfToken: req.csrfToken(),
+        errores: [{msg: 'El email no pertenece a ningún usuario'}]
+    })
+}}
+
 
 const resetPassword = async (req,res) => {
     //Validacion
@@ -147,5 +161,6 @@ export {
     registrar,
     confirmar,
     formularioOlvidePassword,
-    resetPassword
+    resetPassword,
+    findUsuario
 }
