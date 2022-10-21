@@ -1,7 +1,8 @@
 import { check, validationResult} from 'express-validator'
 import Usuario from '../models/Usuario.js'
 import {generarId} from '../helpers/tokens.js'
-import { emailRegistro } from '../helpers/emails.js'
+import { emailRegistro, emailOlvidePassword } from '../helpers/emails.js'
+
 
 
 const formularioLogin = (req,res) => {
@@ -82,7 +83,11 @@ emailRegistro({
     email:  usuario.email,
     token:  usuario.token
 })
-
+//Mostrar mensaje de confirmacion
+res.render('templates/mensaje', {
+    pagina: 'Cuenta creada correctamente',
+    mensaje: 'Hemos enviado un mail de confirmación, presiona en el enlace'
+})
 
 
 }
@@ -151,7 +156,48 @@ const resetPassword = async (req,res) => {
         errores: resultado.array()
     })
 
-}}
+}
+//Buscar el usuario
+const { email } = req.body
+
+const usuario = usuario.findOne({where: {email}})
+console.log (usuario)
+if(!usuario)
+return res.render('auth/olvide-password',{            
+    pagina: 'Recupera tu acceso Deluxe Shop',
+    csrfToken : req.csrfToken(),
+    errores: [{msg:'El email no pertenece a ningun usuario'}]
+})
+//Generar un token y enviar el email
+usuario.token = generarId();
+await usuario.save();
+
+//Enviar un email
+emailOlvidePassword({
+    email: usuario.email,
+    nombre: usuario.nombre,
+    token: usuario.token
+})
+
+
+//Mostrar mensaje de confirmación
+res.render('templates/mensaje', {
+    pagina: 'Reestablece tu password',
+    mensaje: 'Hemos enviado un mail con las instrucciones'
+})
+
+}
+const comprobarToken = (req, res) =>{
+
+
+}
+const nuevoPassword = (req, res) =>{
+
+
+}
+
+
+
 
 
 export {
@@ -162,5 +208,7 @@ export {
     confirmar,
     formularioOlvidePassword,
     resetPassword,
-    findUsuario
+    findUsuario,
+    comprobarToken,
+    nuevoPassword
 }
