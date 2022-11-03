@@ -1,4 +1,5 @@
 import { check, validationResult} from 'express-validator'
+import bcrypt from 'bcrypt'
 import Usuario from '../models/Usuario.js'
 import {generarId} from '../helpers/tokens.js'
 import { emailRegistro, emailOlvidePassword } from '../helpers/emails.js'
@@ -187,13 +188,62 @@ res.render('templates/mensaje', {
 })
 
 }
-const comprobarToken = (req, res) =>{
+const comprobarToken = async (req, res) =>{
+
+    const {token} = req.params;
+    const usuario = await Usuario.findOne({where:{token}})
+    if(!usuario) {
+        return res.render('auth/confirmar-cuenta', {
+            pagina: 'reestablece tu password',
+            mensaje: 'Hubo un error al validar tu informacion, Intenta de nuevo',
+            error: true
+
+        })
+    }
+//Mostrar formulario para modificar el password
+res.render('auth/reset-password', {
+    pagina: 'Restablece Tu Password',
+    csrfToken: req.csrfToken()
+})
 
 
 }
-const nuevoPassword = (req, res) =>{
+const nuevoPassword = async (req, res) =>{
+    //validar elnuevo password
+    await check('password').isLength({min: 6}).withMessage('El password al menos tiene que ser de 6 caracteres').run(req)
+    let resultado = validationResult(req)
 
+    // return res.json(resultado.array())
 
+//Validacion: Verificando que el usuario este vacio
+    if(!resultado.isEmpty()){
+        //Errores
+        return res.render('auth/reset-password' , {
+            pagina: 'Reestablece tu password', 
+            csrfToken : req.csrfToken(),
+            errores: resultado.array(),
+          
+        })
+    }
+
+    const { token } = req.params;
+    const { password } = req.body;
+
+    //identificar quien hace el password
+    const usuario = await Usuario.findOne({where: {token}})
+    console.log(usuario)
+    //Hashear el nuevo password
+    const salt = await bcrypt.genSalt(10)
+    usuario.password = await bcrypt.hash(password, salt);
+    usuario.token = null;
+
+    await usuario.save();
+
+    res.render('auth/confirmar-cuenta' , {
+        pagina: "Password Restablecido",
+        mensaje: 'El Password se guardó correctamente'
+
+    })
 }
 
 
