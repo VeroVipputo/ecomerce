@@ -1,11 +1,12 @@
 import express from 'express';
-import { formularioLogin, formularioRegistro, registrar, confirmar, principal, formularioOlvidePassword, resetPassword, comprobarToken, nuevoPassword} from '../controllers/usuarioController.js';
+import { formularioLogin, autenticar, formularioRegistro, registrar, confirmar, principal, formularioOlvidePassword, resetPassword, comprobarToken, nuevoPassword} from '../controllers/usuarioController.js';
 import { emailRegistro } from '../helpers/emails.js';
 
 
 const router = express.Router();
 
 router.get('/login', formularioLogin);
+router.post('/login', autenticar);
 
 router.get('/main', principal);
 router.post('/main', principal);
