@@ -1,5 +1,6 @@
 import { check, validationResult} from 'express-validator'
 import bcrypt from 'bcrypt'
+import  jwt  from 'jsonwebtoken'
 import Usuario from '../models/Usuario.js'
 import {generarId} from '../helpers/tokens.js'
 import { emailRegistro, emailOlvidePassword } from '../helpers/emails.js'
@@ -64,7 +65,15 @@ const autenticar = async (req,res) =>{
             errores: [{msg: 'El password es Incorrecto'}]
     })
     }
-
+    //Autenticar el usuario
+    const token = jwt.sign({
+        nombre: 'Diego',
+        empresa: 'Tettamcorp',
+        tecnologias: 'Node.js'
+    }, "palabrasecreta",{
+       expiresIn: '1d' 
+    })
+    console.log(token)
 }
 
 
@@ -319,4 +328,4 @@ export {
     findUsuario,
     comprobarToken,
     nuevoPassword
-}
+} 
