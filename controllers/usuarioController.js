@@ -14,8 +14,57 @@ const formularioLogin = (req,res) => {
     })
 }
 
-const autenticar = (req,res) =>{
+const autenticar = async (req,res) =>{
    //Validacion
+   await check('email').isEmail().withMessage('El email es obligatorio').run(req)
+   await check('password').notEmpty().withMessage('El password ES Obligatorio').run(req)
+
+    
+   let resultado = validationResult(req)
+
+   // return res.json(resultado.array())
+
+//Validacion: Verificando que el usuario este vacio
+   if(!resultado.isEmpty()){
+       //Errores
+       return res.render('auth/login' , {
+           pagina: 'Iniciar sesión', 
+           csrfToken : req.csrfToken(),
+           errores: resultado.array(),
+         
+       })
+   }
+
+   const { email, password } = req.body;
+
+   //Comprobar si el usuario existe
+   const usuario = await Usuario.findOne({where:{ email }})
+   if(!usuario){
+        return res.render('auth/login' , {
+            pagina: 'Iniciar sesión', 
+            csrfToken : req.csrfToken(),
+            errores: [{msg: 'EL usuario No Existe'}]
+      
+    })
+    }
+
+    //Comprobar si el usuario esta confirmado
+    if(!usuario.confirmado){
+        return res.render('auth/login' , {
+            pagina: 'Iniciar sesión', 
+            csrfToken : req.csrfToken(),
+            errores: [{msg: 'Tu cuenta no ha sido Confirmada'}]
+    })
+    }
+    //Revisar el Password
+    if(!usuario.verificarPassword(password)){
+        return res.render('auth/login' , {
+            pagina: 'Iniciar sesión', 
+            csrfToken : req.csrfToken(),
+            errores: [{msg: 'El password es Incorrecto'}]
+    })
+    }
+
 }
 
 
