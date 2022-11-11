@@ -1,12 +1,9 @@
 import { check, validationResult} from 'express-validator'
 import bcrypt from 'bcrypt'
-import  jwt  from 'jsonwebtoken'
+
 import Usuario from '../models/Usuario.js'
-import {generarId} from '../helpers/tokens.js'
+import { generarJWT ,generarId} from '../helpers/tokens.js'
 import { emailRegistro, emailOlvidePassword } from '../helpers/emails.js'
-
-
-
 
 const formularioLogin = (req,res) => {
     res.render('auth/login', {
@@ -66,14 +63,14 @@ const autenticar = async (req,res) =>{
     })
     }
     //Autenticar el usuario
-    const token = jwt.sign({
-        nombre: 'Diego',
-        empresa: 'Tettacorp',
-        tecnologias: 'Node.js'
-    }, "palabrasecreta",{
-       expiresIn: '1d' 
-    })
+    const token = generarJWT({id: usuario.id, nombre: usuario.nombre})
     console.log(token)
+
+    // Almacenar en un cookie
+    return res.cookie('_token', token, {
+        httpOnly: true,
+        // secure: true
+    }).redirect('/mis-productos')
 }
 
 
