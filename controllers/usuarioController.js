@@ -68,7 +68,7 @@ const autenticar = async (req,res) =>{
     //Autenticar el usuario
     const token = jwt.sign({
         nombre: 'Diego',
-        empresa: 'Tettamcorp',
+        empresa: 'Tettacorp',
         tecnologias: 'Node.js'
     }, "palabrasecreta",{
        expiresIn: '1d' 
@@ -136,7 +136,7 @@ if(existeUsuario){
 }
 
 
-//Almacear un usuario
+//Almacenar un usuario
 const usuario = await Usuario.create({
     nombre,
     email,
