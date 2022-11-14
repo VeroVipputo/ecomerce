@@ -6,6 +6,15 @@ const admin = (req, res) => {
     })
 }
 
+//Formulario para crear un nuevo producto
+const crear = (req, res) => {
+    res.render('productos/crear', {
+        pagina: 'Crear Producto',
+        barra: true
+    })
+}
+
 export {
-    admin
+    admin,
+    crear
 }
