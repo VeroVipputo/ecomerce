@@ -6,5 +6,6 @@ const router = express.Router()
 
 
 router.get('/productos-test', admin )
+router.get('/mis-productos',admin)
 
-
+export default router

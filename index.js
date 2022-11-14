@@ -2,7 +2,7 @@ import express from 'express';
 import csrf from 'csurf';
 import cookieParser from 'cookie-parser';
 import usuarioRoutes from './routes/usuarioRoutes.js';
-//import productosRoutes from './routes/productosRoutes.js';
+import productosRoutes from './routes/productosRoutes.js';
 import  carritoRoutes from './routes/carritoRoutes.js';
 import db from './config/db.js';
 import usersRouter from './routes/users.router.js';
@@ -59,7 +59,7 @@ app.use(express.static(__dirname+'/public'));
 // Definiendo un Routing (Middlewares)
 app.use('/auth', usuarioRoutes)
 app.use('/auth', carritoRoutes)
-//app.use('/', productosRoutes)
+app.use('/', productosRoutes)
 app.get('/getCookie',(req,res)=>{
 console.log(req.cookies);
 res.send(req.cookies);
