@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import csrf from 'csurf';
 import cookieParser from 'cookie-parser';
 import usuarioRoutes from './routes/usuarioRoutes.js';
@@ -21,6 +22,10 @@ const app = express()
 //Habilitar lectura de datos de formularios
 app.use( express.urlencoded({extended:true}))
 app.use('/users',usersRouter);
+
+//CORS
+
+app.use(cors());
 
 //Habilitar cookie Parser
 app.use(cookieParser())
