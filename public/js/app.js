@@ -12,9 +12,23 @@ cargarEventListeners();
 
  function cargarEventListeners()  { 
 
-               // Dispara cuando se presiona "Agregar Carrito"
+               // Dispara cuando se presiona "Comprar"
      listaProductos.addEventListener  ('click', agregarProducto);
-     console.log("Productos mostrados");
+     async function agregarProducto(e) {
+          try {
+                e.preventDefault();
+               // Delegation para agregar-carrito
+                (e.target.classList.contains('agregar-carrito')) 
+                    const producto = e.target.parentElement.parentElement;
+                    // Enviamos el producto seleccionado para tomar sus datos
+                    leerDatosProducto(producto);
+                    console.log('Producto agregado')
+     
+               } catch (error) {
+                    console.log(error);    
+          }
+     
+          }
 
      // Cuando se elimina un producto del carrito
      carrito.addEventListener('click', eliminarProducto);
@@ -30,26 +44,6 @@ cargarEventListeners();
           carritoHTML();
      });
      } 
-
-
-
-
-// Función que añade el producto al carrito
-async function agregarProducto(e) {
-     try {
-           e.preventDefault();
-          // Delegation para agregar-carrito
-           (e.target.classList.contains('agregar-carrito')) 
-               const producto = e.target.parentElement.parentElement;
-               // Enviamos el producto seleccionado para tomar sus datos
-               leerDatosProducto(producto);
-               console.log('Producto agregado')
-
-          } catch (error) {
-               console.log(error);    
-     }
-
-     }
 
 
 // Lee los datos del producto

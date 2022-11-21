@@ -19,6 +19,8 @@ import compression from "compression";
 // Crear la APP
 const app = express()
 
+
+
 //Habilitar lectura de datos de formularios
 app.use( express.urlencoded({extended:true}))
 app.use('/users',usersRouter);
@@ -49,6 +51,7 @@ try {
 
 //Habilitar Pug
 app.set('view engine', 'pug')
+
 app.set('views','./views')
 app.set('views',__dirname +'/views')
 app.use(express.json());
