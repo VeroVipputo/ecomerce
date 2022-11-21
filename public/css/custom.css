@@ -17,7 +17,7 @@ h4 {
 header {
     
     padding: 20px 0 0 20;
-    background: white;
+    background: rgb(211, 211, 73);
     text-align: center;
 }
 @media (min-width: 750px) {
@@ -25,7 +25,7 @@ header {
         text-align: left;
     }
 }
-.borrar-curso {
+.borrar-producto {
     background-color: red;
     border-radius: 50%;
     padding: 5px 10px;
@@ -54,7 +54,7 @@ ul {
 }
 .submenu:hover #carrito{
     display: block;
-    position: absolute;
+    position:absolute;
     right:0;
 
     top:100%;
@@ -137,7 +137,7 @@ ul {
     background-image: url(../img/icono3.png);
 }
 
-#lista-cursos .row {
+#lista-productos .row {
     margin-bottom:20px;
 }
 .agregar-carrito {

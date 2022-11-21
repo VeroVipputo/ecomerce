@@ -4,14 +4,15 @@ block contenido
 
 
   body
-      header#header.header
-        .container
-          .row
-            .four.columns
+  header#header.header
+    img.logo(src='../img/logo3.jpg')
+    .container
+      .row
+        .four.columns
           
-              .two.columns.u-pull-right
-                ul
-                  li.submenu
+            .two.columns.u-pull-right
+              ul
+                li.submenu
                     img#img-carrito(src='../img/cart.png')
                     #carrito
                         table#lista-carrito.u-full-width
@@ -28,38 +29,23 @@ block contenido
                         a#vaciar-carrito.button.u-full-width(href='#') Vaciar Carrito
 
 
-          #hero
-            .container
-              .row
-                .six.columns
-                  .contenido-hero
-                    h2
-                      img.logo(src='../img/logo3.jpg')
-                    p Viviendo la vida con Estilo y buen gusto 
-                    form#busqueda.formulario(action='#', method='post')
-                        input#buscador.u-full-width(type='text', placeholder='Productos Internacionales Premium')
-                        input#submit-buscador.submit-buscador(type='submit')
-          .barra
-            .container
-              .row
-                .four.columns.icono.icono1
-                  p
-                    | Productos exclusivos 
-                    
-                    Calidad  de calidad superior
-                .four.columns.icono.icono2 
-                  P 
-                   | Productos Originales de prestigio internacional 
-
-                  Disfruta con garantia extendida  
-                .four.columns.icono.icono3
-                  p                                                            
-                   | Servicios de entrega puerta a puerta 
-                   
-                  Disfruta sin demoras                 
+  #hero
+    .container
+      .row
+          .six.columns
+            .contenido-hero
+                 
+                form#busqueda.formulario(action='#', method='post')
+                  input#buscador.u-full-width(type='text', placeholder='Productos Internacionales Premium')
+                  input#submit-buscador.submit-buscador(type='submit')
+  .barra
+    .container
+   
                   
-          #lista-cursos.container
-            h1#encabezado.encabezado Catalogo de Productos
+                            
+                  
+          #lista-productos.container
+          h1#encabezado.encabezado Catalogo de Productos
             .row
               .four.columns
                 .card

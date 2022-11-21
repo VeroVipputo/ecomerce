@@ -23,7 +23,7 @@ const app = express()
 app.use( express.urlencoded({extended:true}))
 app.use('/users',usersRouter);
 
-//CORS
+//CORS (jntercambio de recursos de Origen cruzado)
 
 app.use(cors());
 
