@@ -134,7 +134,7 @@ function vaciarCarrito() {
       }
 }
 
-
+     
 export default {
      
      cargarEventListeners,

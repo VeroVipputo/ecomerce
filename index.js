@@ -10,6 +10,8 @@ import usersRouter from './routes/users.router.js';
 //import mongoose from 'mongoose';
 
 import __dirname from './utils.js';
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUiExpress from 'swagger-ui-express';
 //import MongoStore from 'connect-mongo';
 //import session from 'express-session';
 // import passport from 'passport';
@@ -19,12 +21,22 @@ import compression from "compression";
 // Crear la APP
 const app = express()
 
-
+const swaggerOptions = {
+     definition: {
+          openapi:'3.0.1',
+          info: {
+               title: "API de Ecommerce",
+               description: " Es una Api para probar documentacion"
+          }
+     },
+     apis:[`${__dirname}/docs/**/*.yaml`]
+}
+const spects = swaggerJSDoc(swaggerOptions);
 
 //Habilitar lectura de datos de formularios
 app.use( express.urlencoded({extended:true}))
 app.use('/users',usersRouter);
-
+app.use('/api/users',swaggerUiExpress.serve,swaggerUiExpress.setup(spects))
 //CORS (jntercambio de recursos de Origen cruzado)
 
 app.use(cors());
