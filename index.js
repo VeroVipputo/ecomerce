@@ -34,9 +34,10 @@ const swaggerOptions = {
 const spects = swaggerJSDoc(swaggerOptions);
 
 //Habilitar lectura de datos de formularios
-app.use( express.urlencoded({extended:true}))
+app.use( express.urlencoded({extended:true}));
+app.use('/api-docs',swaggerUiExpress.serve,swaggerUiExpress.setup(spects));
 app.use('/users',usersRouter);
-app.use('/api/users',swaggerUiExpress.serve,swaggerUiExpress.setup(spects))
+
 //CORS (jntercambio de recursos de Origen cruzado)
 
 app.use(cors());
