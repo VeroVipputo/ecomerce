@@ -109,7 +109,7 @@ function carritoHTML() {
                <td>${producto.precio}</td>
                <td>${producto.cantidad} </td>
                <td>
-                    <a href="#" class="borrar-curso" data-id="${producto.id}">X</a>
+                    <a href="#" class="borrar-producto" data-id="${producto.id}">X</a>
                </td>
           `;
           contenedorCarrito.appendChild(row);
