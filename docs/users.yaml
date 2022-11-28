@@ -13,8 +13,21 @@ components:
         password:
           type: string
           description: Contraseña del usuario sin hashear  
-        example:
-          name: Veronica Vipputo
-          email: veronicavipputo@gmail.com
-          password: 123
-  
+      example:
+        name: Veronica Vipputo
+        email: veronicavipputo@gmail.com
+        password: 123
+paths:
+  /auth/registro:
+    get:
+      properties: Se Muestra formulario de Registro del Usuario
+      example:
+        tu nombre:
+        email:
+        password:
+        repetir password:
+      $ref: '#/'
+  /auth/login:
+      properties: 
+        email: Email de Registro
+        password: password del Usuario 

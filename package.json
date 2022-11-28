@@ -25,7 +25,7 @@
     "cookie-parser",
     "connect-mongo"
   ],
-  "author": "Diego Daniel Tettamanti",
+  "author": "Veronica Andrea Vipputo ",
   "license": "ISC",
   "dependencies": {
     "@apollo/client": "^3.7.1",
