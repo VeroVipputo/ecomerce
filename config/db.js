@@ -13,9 +13,9 @@ const db = new Sequelize(process.env.BD_NOMBRE,process.env.BD_USER,process.env.B
         timestamps: true
     },
     pool: {
-         max:5,
+         max:5, //MAX. DE CONEXION
          min:0,
-         acquire: 30000,
+         acquire: 30000, //30 SEGUNDOS ANTES DEL ERROR
          idle:10000       
     },
     operatorAliases: false

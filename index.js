@@ -12,8 +12,10 @@ import usersRouter from './routes/users.router.js';
 import __dirname from './utils.js';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUiExpress from 'swagger-ui-express';
-//import MongoStore from 'connect-mongo';
-//import session from 'express-session';
+import session from 'express-session';
+// import MongoStore from 'connect-mongo';
+
+
 // import passport from 'passport';
 // import initializePassport from './config/passport.config.js';
 import compression from "compression";
@@ -45,12 +47,21 @@ app.use(cors());
 //Habilitar cookie Parser
 app.use(cookieParser())
 
+// app.use(session({
+//      secret: process.env.SECRETO,
+//      key: process.env.KEY,
+//      resave: false,
+//      saveUninitialized: false,
+//      store: MongoStore.create({mongoUrl: 'mongodb://localhost/bienesraices-node-mvc'} )
+
+// }));
+
 //Habilitar el CSRF
 app.use( csrf({cookie:true}))
 
 //Conexion a la base de datos MySQL
 try {
-     await db.authenticate();
+     await db.authenticate(); 
      db.sync()
      console.log('Conexion Correcta a la base de datos')
 } catch (error) {
@@ -58,9 +69,8 @@ try {
 }
 
 // app.listen(27017,()=> { console.log("Conectado a Mongo")})
-// const mongoUrl = "mongodb://localhost:27017";
-//mongoose.connect(mongoUrl)
-//mongoose.connect(`mongodb+srv://Tettacorp:<${process.env.MONGO_PASS}>@cluster17.63yiu.mongodb.net/bienesraices-node-mvc?retryWrites=true&w=majority`)
+
+// mongoose.connect(`mongodb+srv://Tettacorp:<${process.env.MONGO_PASS}>@cluster17.63yiu.mongodb.net/bienesraices-node-mvc`)
 
 //Habilitar Pug
 app.set('view engine', 'pug')
@@ -89,9 +99,10 @@ res.send(req.cookies);
 
 app.use(compression());
 app.get('/',(req,res)=>{
-    let string = "Hola cómo están";
+    let string = "Backend";
     for(let i=0;i<1000;i++){
-        string+="Hola cómo están";
+        string+=" Backend 2022";
+        
     }
     res.send(string)
 })
