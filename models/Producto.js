@@ -15,5 +15,20 @@ const Producto = db.define('productos', {
     description:{
         type: DataTypes.STRING,
         allowNull: false
+    },
+    precio: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    imagen: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    publicado: {
+       type: DataTypes.BOOLEAN,
+       allowNull: false,
+       defaultValue: false 
     }
 });
+
+export default Producto;
