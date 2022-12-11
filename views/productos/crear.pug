@@ -11,14 +11,14 @@ block contenido
                         h2.text-lg.leading-6.font-medium.text-gray-900.font-extrabold Informacion general
                         p.text-gray-600 Añade información sobre el producto en venta 
 
-                        
+                    
                         div 
                             label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="titulo") Titulo de producto
                             input#titulo.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Titulo Producto, ej. Bolso de Cuero" type="text" name="titulo") 
 
-                        div 
-                            label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="descripcion") Descripción de producto
-                            input#descripcion.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="caracteristicas" type="text-area" name="titulo")
+                        div.space-y-5
+                        h2.text-lg.leading-6.font-medium.text-gray-900.font-extrabold Descripción
+                        textarea#titulo.w-full.px-3.py-2.border.border.gray-300.rounded-md.placeholder-gray-400(placeholder="caracteristicas",name="titulo", type="text", cols="30", rows="10") 
 
                         div 
                             label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="precio") Precio
