@@ -4,7 +4,7 @@ const categorias = [
       {  nombre: 'Varios'},
       {  nombre: 'Deportes'},
       {  nombre: 'Juegos'},
-      {  nombre: 'Tecnologia'},
+      {  nombre: 'Tecnologia'}
 ]
 
 

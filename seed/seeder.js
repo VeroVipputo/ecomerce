@@ -1,9 +1,10 @@
-import { exit } from "node:process";
-import categorias from "./categorias.js";
-import Categoria from "../models/Categoria.js";
-import db from "../config/db.js";
+import { exit } from 'node:process'
+import categorias from './categorias.js'
+import Categoria from '../models/Categoria.js'
+import db from '../config/db.js'
 
-const importarDatos = async () => {
+
+const importarDatos = async () => { 
     try {
         //Autenticar
         await db.authenticate()
@@ -18,11 +19,11 @@ const importarDatos = async () => {
 
     } catch (error) {
         console.log(error)
-        process.exit(1)
+        exit(1)
     }
 }
 
-if(process.argv[2] === "-1") {
+if(process.argv[2] === "-i") {
     importarDatos();
 }
 
