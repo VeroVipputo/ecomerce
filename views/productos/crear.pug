@@ -19,15 +19,24 @@ block contenido
                         div.space-y-5
                         h2.text-lg.leading-6.font-medium.text-gray-900.font-extrabold Descripción
                         textarea#titulo.w-full.px-3.py-2.border.border.gray-300.rounded-md.placeholder-gray-400(placeholder="caracteristicas",name="titulo", type="text", cols="30", rows="10") 
+                        
+                        div(class="md:flex md:gap-4")
 
-                        div 
-                            label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="precio") Precio
-                            input#precio.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="precio" type="number" name="precio")
+                            div(class="md:w-1/2") 
+                                label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="categoria") Categoria
+                                select#categoria.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="categoria")    
+                                    option(value="") -Seleccione la categoría
+                                    each categoria in categorias
+                                        option(value=categoria.id)= categoria.nombre
 
-                        div 
-                            label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="categoria") Categoria
-                            input#categoria.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="categoria" type="text" name="categoria")    
 
+                            div(class="md:w-1/2") 
+                                label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="categoria") Precio
+                                select#precio.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="precio")    
+                                    option(value="") -Seleccione Precio
+                                    each precio in precios
+                                        option(value=precio.id)= precio.nombre
+                        
 block scripts 
         script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
         script(src="https://unpkg.com/esri-leaflet@3.0.8/dist/esri-leaflet.js")
