@@ -1,5 +1,5 @@
-import Precio from "../models/Precio.js"
-import Categoria from "../models/Categoria.js"
+import Precio from '../models/Precio.js'
+import Categoria from '../models/Categoria.js'
 
 const admin = (req, res) => {
     res.render('productos/admin', {

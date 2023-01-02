@@ -805,10 +805,6 @@ video {
     display: flex;
   }
 
-  .md\:w-1 {
-    width: 0.25rem;
-  }
-
   .md\:w-1\/2 {
     width: 50%;
   }
