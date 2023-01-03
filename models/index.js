@@ -5,8 +5,9 @@ import Usuario from './Usuario.js'
 
 Precio.hasOne(Producto)
 
-Producto.belongsTo(Precio, {foreignKey: 'llaveForaneaPrecio'})
-
+Producto.belongsTo(Precio, {foreignKey: 'precioId'})
+Producto.belongsTo(Categoria, {foreignKey: 'categoriaId'})
+Producto.belongsTo(Usuario, {foreignKey: 'usuarioId'})
 
 export {
     Producto,

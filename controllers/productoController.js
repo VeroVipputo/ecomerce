@@ -24,6 +24,10 @@ const crear = async (req, res) => {
     })
 }
 
+const guardar = (req,res) =>{
+
+}
+
 export {
     admin,
     crear
